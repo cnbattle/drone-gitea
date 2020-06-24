@@ -12,8 +12,6 @@ services:
       - DRONE_RUNNER_CAPACITY=${DRONE_RUNNER_CAPACITY}
       - DRONE_RUNNER_NAME=${DRONE_RUNNER_NAME}
       - TZ=Asia/Shanghai
-    depends_on:
-      - drone
     restart: always
     networks:
       - default
