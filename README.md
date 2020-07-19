@@ -28,3 +28,17 @@ openssl rand -hex 16
 ## Run Drone Server
 ```
 ```
+## Run Drone Runner
+```
+ docker run -d \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -e DRONE_RPC_PROTO=http \
+  -e DRONE_RPC_HOST=drone.cnbattle.com \
+  -e DRONE_RPC_SECRET=${your DRONE_RPC_SECRET} \
+  -e DRONE_RUNNER_CAPACITY=2 \
+  -e DRONE_RUNNER_NAME=${HOSTNAME} \
+  -p 3000:3000 \
+  --restart always \
+  --name runner \
+  drone/drone-runner-docker:1
+```
